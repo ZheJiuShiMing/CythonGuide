@@ -6,14 +6,15 @@
 Cython用户指南
 ==========================================
 
-Contents:
+目录:
 
 .. toctree::
    :maxdepth: 2
 
+.. include:: source/preface.rst
+.. include:: source/basic.rst
 
-
-Indices and tables
+索引表
 ==================
 
 * :ref:`genindex`

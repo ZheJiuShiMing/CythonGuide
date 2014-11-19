@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cython用户指南 &mdash; Cython用户指南 0.0.1 文档</title>
+  <title>第二章: 语言基础 &mdash; Cython用户指南 0.0.1 文档</title>
   
 
   
@@ -24,11 +24,11 @@
 
   
   
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   
 
   
-    <link rel="top" title="Cython用户指南 0.0.1 文档" href="#"/> 
+    <link rel="top" title="Cython用户指南 0.0.1 文档" href="../index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -42,9 +42,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="#" class="fa fa-home"> Cython用户指南</a>
+        <a href="../index.html" class="fa fa-home"> Cython用户指南</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -68,7 +68,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Cython用户指南</a>
+        <a href="../index.html">Cython用户指南</a>
       </nav>
 
 
@@ -77,12 +77,12 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Cython用户指南</li>
+    <li>第二章: 语言基础</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/source/basic.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -90,19 +90,8 @@
 </div>
           <div role="main">
             
-  <div class="section" id="cython">
-<h1>Cython用户指南<a class="headerlink" href="#cython" title="永久链接至标题">¶</a></h1>
-<p>目录:</p>
-<div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
-</div>
-</div>
-<div class="section" id="id1">
-<h1>第一章: Cython简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-</div>
-<div class="section" id="id2">
-<h1>第二章: 语言基础<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
+  <div class="section" id="id1">
+<h1>第二章: 语言基础<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="section" id="c">
 <h2>定义C变量和类型<a class="headerlink" href="#c" title="永久链接至标题">¶</a></h2>
 <p>使用 <cite>cdef</cite> 来声明变量:</p>
@@ -144,25 +133,17 @@ cdef Grail *gp  #Right
 <span class="n">ctypedef</span> <span class="kt">int</span><span class="o">*</span> <span class="n">IntPtr</span>
 </pre></div>
 </div>
-<div class="section" id="id3">
-<h3>类型<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id2">
+<h3>类型<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
 <p><cite>Cython</cite> 使用近似C的语法表示C类型(包括指针). 它支持所有的标准C类型char,short,int,long,long long及其unsigned版本，如 unsigned int. 其中特殊的类型，一个是bint类型用于表示C布尔类型(0表示False,非0表示True),另一个是 <cite>Py_ssize_t类型</cite> 表示Python容器的大小。</p>
 <p>可以用C语言里面的方式在Cython里面构建指针类型，方法是在指针对应的类型后添加字符 <cite>*</cite>, 比如 int** 表示指向C int类型的指针的指针.数组构建方法是直接使用C语言的语法，如 int[10]. 注意，Cython使用数组的访问方式来访问指针引用内容，因此 <cite>*x</cite> 是错误的Python语法，应该是 x[0].</p>
 <p>同时，Python类型list,dict,tuple，乃至任何用户自定义扩展类型都可以用作静态类型；但是，Python的int,long类型是不可以用于静态类型，需要替换为C的int,long
 类型，因为Python整数类型用于静态类型没有任何优势。</p>
 </div>
-<div class="section" id="id4">
-<h3>分组的C声明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id3">
+<h3>分组的C声明<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 </div>
 </div>
-</div>
-<div class="section" id="id5">
-<h1>索引表<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>索引</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>模块索引</em></a></li>
-<li><a class="reference internal" href="search.html"><em>搜索页面</em></a></li>
-</ul>
 </div>
 
 
@@ -193,24 +174,24 @@ cdef Grail *gp  #Right
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
+            URL_ROOT:'../',
             VERSION:'0.0.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
         };
     </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
   
 
   

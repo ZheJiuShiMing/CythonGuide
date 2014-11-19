@@ -8,11 +8,13 @@ Cython用户指南
 
 目录:
 
-.. toctree::
-   :maxdepth: 2
 
-.. include:: source/preface.rst
-.. include:: source/basic.rst
+.. toctree::
+   :maxdepth: 3
+
+
+.. include:: ./source/preface.rst
+.. include:: ./source/basic.rst
 
 索引表
 ==================

@@ -1,7 +1,7 @@
 Cython用户指南
 =========================
 
-.. imgge:: https://readthedocs.org/projects/cythonguide/badge/?version=latest
+.. image:: https://readthedocs.org/projects/cythonguide/badge/?version=latest
    :target: http://cythonguide.readthedocs.org/zh_CN/latest/
 
 

@@ -6,4 +6,4 @@ Cython用户指南_
    :target: http://cythonguide.readthedocs.org/zh_CN/latest/
 
 
-.. _Cython用户指南:: http://cythonguide.readthedocs.org/zh_CN/latest/
+.. _Cython用户指南: http://cythonguide.readthedocs.org/zh_CN/latest/

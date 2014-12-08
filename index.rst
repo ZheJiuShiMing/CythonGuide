@@ -6,20 +6,11 @@
 Cython用户指南
 ==========================================
 
-目录:
+.. contents:: :local:
 
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
-
-.. include:: ./source/preface.rst
-.. include:: ./source/basic.rst
-
-索引表
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   reference/preface
+   reference/basic

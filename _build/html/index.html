@@ -28,7 +28,8 @@
   
 
   
-    <link rel="top" title="Cython用户指南 0.0.1 文档" href="#"/> 
+    <link rel="top" title="Cython用户指南 0.0.1 文档" href="#"/>
+        <link rel="next" title="第一章: Cython简介" href="reference/preface.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -55,11 +56,14 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul class="simple">
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/preface.html">第一章: Cython简介</a><ul class="simple">
 </ul>
-<ul class="simple">
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/basic.html">第二章: 语言基础</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/basic.html#c">定义C变量和类型</a></li>
 </ul>
-<ul class="simple">
+</li>
 </ul>
 
         
@@ -96,90 +100,29 @@
             
   <div class="section" id="cython">
 <h1>Cython用户指南<a class="headerlink" href="#cython" title="永久链接至标题">¶</a></h1>
-<p>目录:</p>
 <div class="toctree-wrapper compound">
-<ul class="simple">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/preface.html">第一章: Cython简介</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/basic.html">第二章: 语言基础</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/basic.html#c">定义C变量和类型</a></li>
+</ul>
+</li>
 </ul>
 </div>
-</div>
-<div class="section" id="id1">
-<h1>第一章: Cython简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
-</div>
-</div>
-<div class="section" id="id2">
-<h1>第二章: 语言基础<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
-</div>
-<div class="section" id="c">
-<h2>定义C变量和类型<a class="headerlink" href="#c" title="永久链接至标题">¶</a></h2>
-<p>使用 <cite>cdef</cite> 来声明变量:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cdef</span> <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span>
-<span class="n">cdef</span> <span class="nb">float</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">[</span><span class="mi">42</span><span class="p">],</span> <span class="o">*</span><span class="n">h</span>
-
-<span class="n">cdef</span> <span class="n">struct</span> <span class="n">Grail</span><span class="p">:</span>
-     <span class="nb">int</span> <span class="n">age</span>
-     <span class="nb">float</span> <span class="n">volume</span>
-
-<span class="n">cdef</span> <span class="n">union</span> <span class="n">Food</span><span class="p">:</span>
-     <span class="n">char</span> <span class="o">*</span><span class="n">spam</span>
-     <span class="nb">float</span> <span class="o">*</span><span class="n">eggs</span>
-
-<span class="n">cdef</span> <span class="n">enum</span> <span class="n">CheeseType</span><span class="p">:</span>
-     <span class="n">cheddar</span><span class="p">,</span> <span class="n">edam</span><span class="p">,</span>
-     <span class="n">camembert</span>
-
-<span class="n">cdef</span> <span class="n">enum</span> <span class="n">CheeseState</span><span class="p">:</span>
-     <span class="n">hard</span> <span class="o">=</span> <span class="mi">1</span>
-     <span class="n">soft</span> <span class="o">=</span> <span class="mi">2</span>
-     <span class="n">runny</span> <span class="o">=</span> <span class="mi">3</span>
-</pre></div>
-</div>
-<p>目前无法直接定义常量，可以通过枚举方式:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">cdef</span> <span class="n">enum</span><span class="p">:</span>
-   <span class="n">tons_of_spam</span> <span class="o">=</span> <span class="mi">3</span>
-</pre></div>
-</div>
-<p>需要注意， <cite>struct,union,enum</cite> 只能用于定义类型，不能用于定义引用:</p>
-<div class="highlight-c"><div class="highlight"><pre>cdef struct Grail *gp # WRONG
-
-cdef Grail *gp  #Right
-</pre></div>
-</div>
-<p>可以通过 <cite>ctypedef</cite> 来重定义类型名:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="n">ctypedef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">ULong</span>
-
-<span class="n">ctypedef</span> <span class="kt">int</span><span class="o">*</span> <span class="n">IntPtr</span>
-</pre></div>
-</div>
-<div class="section" id="id3">
-<h3>类型<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
-<p><cite>Cython</cite> 使用近似C的语法表示C类型(包括指针). 它支持所有的标准C类型char,short,int,long,long long及其unsigned版本，如 unsigned int. 其中特殊的类型，一个是bint类型用于表示C布尔类型(0表示False,非0表示True),另一个是 <cite>Py_ssize_t类型</cite> 表示Python容器的大小。</p>
-<p>可以用C语言里面的方式在Cython里面构建指针类型，方法是在指针对应的类型后添加字符 <cite>*</cite>, 比如 int** 表示指向C int类型的指针的指针.数组构建方法是直接使用C语言的语法，如 int[10]. 注意，Cython使用数组的访问方式来访问指针引用内容，因此 <cite>*x</cite> 是错误的Python语法，应该是 x[0].</p>
-<p>同时，Python类型list,dict,tuple，乃至任何用户自定义扩展类型都可以用作静态类型；但是，Python的int,long类型是不可以用于静态类型，需要替换为C的int,long
-类型，因为Python整数类型用于静态类型没有任何优势。</p>
-</div>
-<div class="section" id="id4">
-<h3>分组的C声明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
-</div>
-</div>
-</div>
-<div class="section" id="id5">
-<h1>索引表<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>索引</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>模块索引</em></a></li>
-<li><a class="reference internal" href="search.html"><em>搜索页面</em></a></li>
-</ul>
 </div>
 
 
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="reference/preface.html" class="btn btn-neutral float-right" title="第一章: Cython简介"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
   
 
   <hr/>
